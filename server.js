@@ -2,6 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
+const pokemon = require("./models/pokemon")
 
 const PORT = process.env.PORT
 const app = express()
@@ -21,21 +22,6 @@ mongoose.connection
 .on("close", () => console.log("Disconnected from Mongoose"))
 .on("error", (error) => console.log(error))
 
-//-------------------
-// Models
-//-------------------
-const {Schema, model} = mongoose
-
-//Animals Schema
-const pokedexSchema = new Schema({
-    species: String,
-    extinct: Boolean,
-    location: String,
-    lifeExpectancy: Number
-})
-
-// Make animal model
-const Pokedex = model("Pokedex", pokedexSchema)
 
 //-----------------
 // Middleware
@@ -52,6 +38,21 @@ app.use(express.static('public'))
 app.get('/', (req,res) => {
     res.send("your server is running... better catch it.")
 })
+
+app.get('/pokemon/', (req, res) => {
+    // const image = pokemon[req.params].img
+    // const png = image.slice(0, image.length - 3) + 'png' 
+    // console.log(png);
+
+    res.render(
+        'index.ejs',
+        {
+            allPokemon: pokemon
+        }
+    );
+});
+
+
 
 
 

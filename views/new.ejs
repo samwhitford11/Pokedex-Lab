@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <main>
+      <div>
+        <form action="/pokemon" method="POST">
+            <fieldset>
+                <legend>Collect a New Pokemon</legend>
+                <label>
+                    NAME:<input
+                    type="text"
+                    name="name"
+                    placeholder="enter pokemon name"
+                    />
+                </label>
+                <label>
+                    TYPE:<input
+                    type="text"
+                    name="type"
+                    placeholder="enter pokemon type"
+                    />
+                </label>
+                <label>
+                    STATS:<input
+                    type="text"
+                    name="stats"
+                    placeholder="enter pokemon stats"
+                    />
+                </label>
+            </fieldset>
+            <input type="submit" value="Add New Pokemon"/>
+
+        </form>
+
+
+      </div>
+    </main>
+    
+</body>
+</html>

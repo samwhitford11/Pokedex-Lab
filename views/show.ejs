@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <%- include("./partials/head.ejs"), {title: "Show Page"}%>
+    <body>
+        <main> 
+            <div>
+                <article>
+                   <h1><%= pokemon.name %></h1>
+                   <img src=<%= img; %>>
+                   <h2>Type: <%= pokemon.type</h2>
+                   <h2>Stats: <%= pokemon.stats</h2>
+                 <a href="/pokemon/<%= index %>/ edit"><button>EDIT</button></a> 
+                </article>
+            </div>
+        </main>
+        
+    </body>
+    <a href="/pokemon/"><button>Back</button></a>
+</html>
