@@ -1,12 +1,19 @@
 * {
-    background-color: aquamarine;
+    background-color: lightcyan;
 }
 
 button {
     background-color: white;
     color: black;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Changa', sans-serif;
 }
 
-h1 {
-    font-family: ;
+* {
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Changa', sans-serif;
+}
+
+.noBullet {
+    list-style: none;
 }

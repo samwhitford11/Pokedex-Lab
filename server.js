@@ -40,11 +40,8 @@ app.get('/', (req,res) => {
 })
 
 // Index Route
-app.get('/pokemon/', (req, res) => {
-    // const image = pokemon[req.params].img
-    // const png = image.slice(0, image.length - 3) + 'png' 
-    // console.log(png);
-
+app.get('/pokemon', (req, res) => {
+    
     res.render(
         'index.ejs',
         {
@@ -52,36 +49,9 @@ app.get('/pokemon/', (req, res) => {
         }
     );
 });
-
-// New Route
-app.get('/pokemon/new', (req,res) =>{
-    res.render('new.ejs');
-});
-
-// Create Route
-app.post('/pokemon', (req,res) => {
-    pokemon.push(req.body)
-    res.redirect('/pokemon')
-});
-
-// Edit Route
-app.get("/pokemon/:id/edit", (req,res)=>{
-    res.render("edit.ejs", 
-    {
-        pokemons: pokemon[req.params.id],
-        index:req.params.id
-    })
-
-});
-
-// Update Route
-app.put('/pokemon/:id', (req, res) => {
-    pokemon[req.params.id] = req.body
-    res.redirect('/pokemon')
-});
-
 // Destroy Route
 app.delete("/pokemon/:id", (req, res) => {
+    console.log('delete')
     //splice the item out of the array
     pokemon.splice(req.params.id, 1)
     res.redirect("/pokemon")
@@ -92,9 +62,67 @@ app.delete("/pokemon/:id", (req, res) => {
 app.get('/pokemon/:id', (req,res) => {
     res.render('show.ejs', 
     {
-        pokemons: pokemon[req.body.id],
+        pokemon: pokemon[req.params.id],
         index: req.params.id
     });
+});
+
+// New Route
+app.get('/pokemon/add/new', (req,res) =>{
+    res.render('new.ejs',{
+        stats: {
+            hp: "",
+            attack: "",
+            defense: "",
+            spattack: "",
+            spdefense: "",
+            speed: ""
+          }// model of stats based on pokemon js
+    })
+});
+
+// Create Route
+app.post('/pokemon', (req,res) => {
+    // use the spread operater to save the rest of the keys for stats
+    const { name , type, ...rest }= req.body//deconstructed req.body into keys
+    
+    const body = {
+        name,
+        type,
+        stats: rest
+    }
+    pokemon.push(body)
+    res.redirect('/pokemon')
+});
+
+
+
+// Update Route
+app.put('/pokemon/:id', (req, res) => {
+    const { name , type, img, ...rest }= req.body//deconstructed req.body into keys
+    
+    const body = {
+        name,
+        type,
+        img,
+        stats: rest
+    }
+    pokemon[req.params.id] = body
+    res.redirect('/pokemon')
+});
+
+
+
+
+
+// Edit Route
+app.get("/pokemon/:id/edit", (req,res)=>{
+    res.render("edit.ejs", 
+    {
+        pokemon: pokemon[req.params.id],
+        index:req.params.id
+    })
+
 });
 
 

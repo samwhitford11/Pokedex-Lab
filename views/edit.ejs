@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <%- include("./partials/head.ejs")%>
+    <body>
+        <h1>Edit Pokemon</h1>
+
+        <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%= pokemon.name %>"> <br>
+            Type: <input type="text" name="type" value="<%= pokemon.type %>"><br>
+            Image: <input type="text" name="img" value="<%= pokemon.img %>">
+            <h2>Stats</h2>
+            <ul>
+             <% for (const [key, value] of Object.entries(pokemon.stats)) { %>
+                <li> 
+                    <%= key %>:    
+                    <input
+                    type="text"
+                    name="<%= key %>"
+                    value="<%=value%>"
+                    />
+                </li>
+          <% } %>
+            </ul>
+            
+            <br>
+            <input type="submit" value="Update Pokemon">
+        </form>
+
+    </body>
+</html>

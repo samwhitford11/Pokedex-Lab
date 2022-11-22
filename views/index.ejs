@@ -5,17 +5,24 @@
 <body>
     <h1>Pokemon Collection</h1>
     <nav>
-        <a href="/pokemon/new"><button>Add Pokemon</button></a>
+        <a href="/pokemon/add/new"><button>Add Pokemon</button></a>
     </nav>
     <article>
         <% for(let i = 0; i < allPokemon.length; i++) { %>
-            <li>
-                <a href="/pokemon/<%=i%>"><%=allPokemon[i].img %></a>
+            <li class="noBullet">
+                <h3>
+                    <%= allPokemon[i].name %>
+                </h3>
+                <a href="/pokemon/<%=i%>">
+                    <% if (allPokemon[i].img === undefined){ %>
+                            NO IMAGE AVAILABLE
+                   <% } %>
+                    <img src="<%=allPokemon[i].img %>" />
+                </a>
             </li>
         <% } %>
     </article>
         
     
-</body>
 </body>
 </html>

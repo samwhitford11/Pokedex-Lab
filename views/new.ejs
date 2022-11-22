@@ -14,6 +14,7 @@
                     placeholder="enter pokemon name"
                     />
                 </label>
+                <br>
                 <label>
                     TYPE:<input
                     type="text"
@@ -21,12 +22,22 @@
                     placeholder="enter pokemon type"
                     />
                 </label>
+                <br>
                 <label>
-                    STATS:<input
-                    type="text"
-                    name="stats"
-                    placeholder="enter pokemon stats"
-                    />
+                    STATS:
+                    <% for (const [key, value] of Object.entries(stats)) { %>
+                        <li> 
+                            <%= key %>:    
+                            <input
+                            type="text"
+                            name="<%= key %>"
+                            placeholder="enter pokemon stats"
+                            />
+                        </li>
+                     <% } %>
+                    
+                    
+                  
                 </label>
             </fieldset>
             <input type="submit" value="Add New Pokemon"/>

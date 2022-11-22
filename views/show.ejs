@@ -6,14 +6,26 @@
             <div>
                 <article>
                    <h1><%= pokemon.name %></h1>
-                   <img src=<%= img; %>>
-                   <h2>Type: <%= pokemon.type</h2>
-                   <h2>Stats: <%= pokemon.stats</h2>
-                 <a href="/pokemon/<%= index %>/ edit"><button>EDIT</button></a> 
+                   <img src="<%= pokemon.img %>"/>
+                   <h2>Type: <%= pokemon.type %></h2>
+                   <h2>Stats</h2>
+                   <ul>
+                    <% for (const [key, value] of Object.entries(pokemon.stats)) { %>
+                    <li> 
+                        <%= key %>: <%= value %>
+                    </li>
+                 <% } %>
+                   </ul>
+                   
+                 <a href="/pokemon/<%= index %>/edit"><button>EDIT</button></a> 
+                 <form action="/pokemon/<%=index %>?_method=DELETE" method="POST">
+                    <input type="submit"
+                    value="Delete">
+                </form>
                 </article>
             </div>
         </main>
         
     </body>
-    <a href="/pokemon/"><button>Back</button></a>
+    <a href="/pokemon"><button>Back</button></a>
 </html>
