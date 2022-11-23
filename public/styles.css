@@ -1,5 +1,7 @@
 * {
     background-color: lightcyan;
+    justify-content: center;
+    
 }
 
 button {
@@ -7,6 +9,7 @@ button {
     color: black;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Changa', sans-serif;
+    border-radius: 10%;
 }
 
 * {
@@ -16,4 +19,35 @@ button {
 
 .noBullet {
     list-style: none;
+}
+
+.name {
+    align-items: center;
+}
+
+img {
+    border-radius: 50%;
+    max-width: 50%;
+    height: auto;
+    text-align: center;
+    padding: 10px 10px;
+    background: linear-gradient(to right, rgb(170, 139, 3), rgb(237, 232, 187));;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19)
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+a {
+    text-align: center;
 }

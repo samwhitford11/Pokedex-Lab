@@ -9,17 +9,17 @@
     </nav>
     <article>
         <% for(let i = 0; i < allPokemon.length; i++) { %>
-            <li class="noBullet">
-                <h3>
+            <div class="noBullet">
+                <h2>
                     <%= allPokemon[i].name %>
-                </h3>
+                </h2>
                 <a href="/pokemon/<%=i%>">
                     <% if (allPokemon[i].img === undefined){ %>
                             NO IMAGE AVAILABLE
                    <% } %>
                     <img src="<%=allPokemon[i].img %>" />
                 </a>
-            </li>
+            </div>
         <% } %>
     </article>
         
