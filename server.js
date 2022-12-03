@@ -3,6 +3,7 @@ const express = require("express")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const pokemon = require("./models/pokemon")
+const morgan = require("morgan") //import morgan
 
 const PORT = process.env.PORT
 const app = express()
